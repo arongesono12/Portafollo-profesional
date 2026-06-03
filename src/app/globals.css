@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Italic-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  --background: #081112;
+  --foreground: #e5f7fb;
+  --font-inter: "Inter", "Roboto", Arial, Helvetica, sans-serif;
+  --font-roboto: "Roboto", "Inter", Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: #bae6fd;
+  color: #082f49;
+}
+
+.section-shell {
+  margin-inline: auto;
+  width: min(920px, calc(100% - 32px));
+}
+
+.portfolio-frame {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  background: #081112;
+  box-shadow: none;
+}
+
+.tech-surface {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(34, 211, 238, 0.07), transparent 30%),
+    radial-gradient(circle at 80% 18%, rgba(34, 211, 238, 0.16), transparent 22%),
+    linear-gradient(180deg, #0b1719 0%, #071112 100%);
+}
+
+.tech-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image:
+    linear-gradient(30deg, transparent 47%, rgba(103, 232, 249, 0.18) 48%, rgba(103, 232, 249, 0.18) 52%, transparent 53%),
+    linear-gradient(150deg, transparent 47%, rgba(103, 232, 249, 0.12) 48%, rgba(103, 232, 249, 0.12) 52%, transparent 53%);
+  background-size: 120px 120px;
+}
+
+.portal-surface {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(7, 17, 18, 0.96) 0%, rgba(7, 17, 18, 0.86) 42%, rgba(7, 17, 18, 0.64) 100%),
+    linear-gradient(180deg, rgba(7, 17, 18, 0.38), rgba(7, 17, 18, 0.92)),
+    url("/image/portal.png") center / cover no-repeat;
+}
+
+.portal-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 72% 36%, rgba(34, 211, 238, 0.18), transparent 28%),
+    linear-gradient(180deg, transparent 70%, #091315 100%);
+}
+
+.avatar-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 22%, rgba(103, 232, 249, 0.18), transparent 44%);
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.55rem, 3vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #f8fafc;
+}
+
+.cyan-text {
+  color: #22d3ee;
+}
+
+.social-media-icon {
+  display: inline-flex;
+  width: var(--social-icon-size);
+  height: var(--social-icon-size);
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

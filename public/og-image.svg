@@ -1,0 +1,10 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <path d="M0 417C202 296 371 335 558 415C770 506 947 469 1200 318V630H0V417Z" fill="#0F172A"/>
+  <rect x="84" y="82" width="1032" height="466" rx="38" stroke="#BAE6FD" stroke-width="4"/>
+  <text x="118" y="228" fill="#0F172A" font-family="Arial, sans-serif" font-size="72" font-weight="700">ARON ESONO</text>
+  <text x="122" y="304" fill="#0369A1" font-family="Arial, sans-serif" font-size="34" font-weight="700">Full Stack &amp; Cloud Architect</text>
+  <text x="122" y="382" fill="#475569" font-family="Arial, sans-serif" font-size="28">Tech portfolio, proyectos, experiencia y contacto</text>
+  <circle cx="975" cy="214" r="92" fill="#E0F2FE"/>
+  <circle cx="975" cy="204" r="58" fill="#0284C7"/>
+</svg>
