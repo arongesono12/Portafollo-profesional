@@ -112,24 +112,24 @@ export const profile: Profile = {
   ],
   projects: [
     {
-      name: "E-commerce Platform Alpha",
+      name: "FondosEG Plataforma de Envíos",
       description:
-        "Plataforma e-commerce moderna con catálogo, pagos, panel administrativo y analítica comercial.",
-      technologies: ["Next.js", "Node.js", "AWS"],
-      image: "/image/portal.png",
+        "Una página enfocada en gestores, agencias y equipos que necesitan controlar caja, saldos, clientes y estados de envío desde un único lugar.",
+      technologies: ["Next.js", "Node.js", "PostgreSQL", "TypeScript"],
+      image: "/project-fondoseg.png",
       status: "Producción",
-      liveUrl: "/",
-      impact: "Aumento de conversión y mejor control operativo.",
+      liveUrl: "https://fondoseg.com",
+      impact: "Aumento de envios y mejor control efectivo.",
     },
     {
-      name: "CasasEG Landing Page",
+      name: "CasasEG - plataforma de alquileres",
       description:
-        "Página de alquileres de viviendas para propietarios y arrendatarios en Guinea ecuatorial.",
+        "CasasEG es una plataforma tecnológica que facilita la publicación, búsqueda y contacto sobre viviendas, habitaciones, apartamentos y otros inmuebles.",
       technologies: ["React", "Vite", "Supabase", "Resend"],
-      image: "/project-saas.png",
+      image: "/project-casaseg.png",
       status: "Activo",
       liveUrl: "https://casaseg.com",
-      impact: "Decisiones más rápidas con datos centralizados.",
+      impact: "Regularización de alquileres y mejor experiencia para usuarios y propietarios.",
     },
     {
       name: "Cloud Migration Tool",
