@@ -122,13 +122,13 @@ export const profile: Profile = {
       impact: "Aumento de conversión y mejor control operativo.",
     },
     {
-      name: "Data Analytics Dashboard",
+      name: "CasasEG Landing Page",
       description:
-        "Dashboard analítico para visualizar métricas, tendencias y rendimiento de negocio en tiempo real.",
-      technologies: ["Next.js", "React", "AWS"],
-      image: "/project-saas.svg",
+        "Página de alquileres de viviendas para propietarios y arrendatarios en Guinea ecuatorial.",
+      technologies: ["React", "Vite", "Supabase", "Resend"],
+      image: "/project-saas.png",
       status: "Activo",
-      liveUrl: "/",
+      liveUrl: "https://casaseg.com",
       impact: "Decisiones más rápidas con datos centralizados.",
     },
     {
