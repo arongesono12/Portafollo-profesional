@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { profile } from "@/data/profile";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3006";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,6 +42,16 @@ export const metadata: Metadata = {
     images: ["/og-image.svg"],
   },
   icons: {
-    icon: "/icon.svg",
+    icon: [
+      {
+        url: "/logo/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/logo/favicon.ico",
+        sizes: "any",
+      },
+    ],
+    apple: "/logo/apple-touch-icon.png",
   },
 };

@@ -1,5 +1,3 @@
-"use client";
-
 import { BadgeCheck, BriefcaseBusiness, Compass, Target } from "lucide-react";
 import type { ReactNode } from "react";
 

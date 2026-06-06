@@ -69,7 +69,7 @@ export function Navbar() {
             href={profile.cvUrl}
             className="ml-2 inline-flex h-9 items-center gap-2 rounded-full border border-cyan-300/70 px-4 text-sm font-black text-cyan-300 transition hover:bg-cyan-300 hover:text-slate-950"
           >
-            <Download size={14} /> Descargar CV
+            <Download size={14} /> Crear CV
           </a>
         </div>
 

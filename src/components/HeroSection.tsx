@@ -1,6 +1,4 @@
-"use client";
-
-import { ArrowRight, Github, Globe2, Mail } from "lucide-react";
+import { ArrowRight, FileText, Github, Globe2, Mail } from "lucide-react";
 import Image from "next/image";
 
 import { profile } from "@/data/profile";
@@ -46,6 +44,12 @@ export function HeroSection() {
               className="inline-flex h-11 items-center justify-center rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10"
             >
               Contáctame
+            </a>
+            <a
+              href="/cv-builder"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10"
+            >
+              Crear CV <FileText size={17} />
             </a>
           </div>
 

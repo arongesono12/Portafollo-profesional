@@ -1,9 +1,8 @@
-"use client";
-
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 
 import { profile } from "@/data/profile";
+import { cn } from "@/lib/utils";
 
 export function ProjectsSection() {
   return (
@@ -40,23 +39,26 @@ export function ProjectsSection() {
                   ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 border-t border-cyan-300/15">
+              <div className={cn("grid border-t border-cyan-300/15", project.repositoryUrl ? "sm:grid-cols-2" : "")}>
                 <a
                   href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex h-11 items-center justify-center gap-2 border-r border-cyan-300/15 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10"
+                  className={cn(
+                    "inline-flex h-11 items-center justify-center gap-2 border-cyan-300/15 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10",
+                    project.repositoryUrl ? "sm:border-r" : "",
+                  )}
                 >
-                  Demo en Vivo <ExternalLink size={14} />
+                  Ver proyecto <ExternalLink size={14} />
                 </a>
-                <a
-                  href={project.repositoryUrl ?? project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex h-11 items-center justify-center gap-2 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10"
-                >
-                  Código GitHub <Github size={14} />
-                </a>
+                {project.repositoryUrl ? (
+                  <a
+                    href={project.repositoryUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex h-11 items-center justify-center gap-2 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10"
+                  >
+                    Código GitHub <Github size={14} />
+                  </a>
+                ) : null}
               </div>
             </article>
           ))}

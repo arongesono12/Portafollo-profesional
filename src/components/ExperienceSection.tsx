@@ -1,5 +1,3 @@
-"use client";
-
 import { Building2, MapPin } from "lucide-react";
 
 import { profile } from "@/data/profile";

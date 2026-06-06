@@ -34,13 +34,13 @@ export async function POST(request: Request) {
     const providerApiKey = process.env.EMAIL_PROVIDER_API_KEY;
 
     // Punto de integración preparado para Resend, Nodemailer, MailerSend o SendGrid.
+    // No se registra el contenido del mensaje para evitar exponer datos personales.
     console.info("Nuevo mensaje de contacto", {
       to: contactEmail,
       providerConfigured: Boolean(providerApiKey),
       name,
       email,
       subject,
-      message,
     });
 
     return NextResponse.json({

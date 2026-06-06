@@ -2,16 +2,14 @@ import type { Profile } from "@/types/profile";
 
 export const profile: Profile = {
   name: "ARON ESONO",
-  brand: "M. Roldán",
+  brand: "Aron Esono",
   title: "Desarrollador Tech Full Stack & Cloud Architect",
   tagline:
     "Full Stack Web & Mobile Developer | React • Next.js • React Native • Supabase",
   avatar: "/profile-avatar.png",
-  email: "contacto@mateoroldan.dev",
-  phone: "+34 600 000 000",
-  whatsapp: "https://wa.me/34600000000",
+  email: "contacto@aronesono.dev",
   location: "Madrid, España",
-  cvUrl: "/cv-mateo-roldan.pdf",
+  cvUrl: "/cv-builder",
   yearsOfExperience: 7,
   specialty: "Full stack, cloud architecture, DevOps y productos web escalables",
   sectors: ["SaaS", "E-commerce", "Cloud", "Analytics"],
@@ -22,8 +20,8 @@ export const profile: Profile = {
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/", icon: "linkedin" },
     { label: "GitHub", href: "https://github.com/", icon: "github" },
-    { label: "Portfolio", href: "https://example.com", icon: "globe" },
-    { label: "Email", href: "mailto:contacto@mateoroldan.dev", icon: "mail" },
+    { label: "Portfolio", href: "/", icon: "globe" },
+    { label: "Email", href: "mailto:contacto@aronesono.dev", icon: "mail" },
   ],
   experience: [
     {
@@ -120,8 +118,7 @@ export const profile: Profile = {
       technologies: ["Next.js", "Node.js", "AWS"],
       image: "/image/portal.png",
       status: "Producción",
-      liveUrl: "https://example.com",
-      repositoryUrl: "https://github.com/",
+      liveUrl: "/",
       impact: "Aumento de conversión y mejor control operativo.",
     },
     {
@@ -131,8 +128,7 @@ export const profile: Profile = {
       technologies: ["Next.js", "React", "AWS"],
       image: "/project-saas.svg",
       status: "Activo",
-      liveUrl: "https://example.com",
-      repositoryUrl: "https://github.com/",
+      liveUrl: "/",
       impact: "Decisiones más rápidas con datos centralizados.",
     },
     {
@@ -142,8 +138,7 @@ export const profile: Profile = {
       technologies: ["Node.js", "Kubernetes", "AWS"],
       image: "/project-design-system.svg",
       status: "Activo",
-      liveUrl: "https://example.com",
-      repositoryUrl: "https://github.com/",
+      liveUrl: "/",
       impact: "Migraciones más ordenadas y menor tiempo de configuración.",
     },
   ],

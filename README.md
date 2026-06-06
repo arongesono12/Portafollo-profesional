@@ -1,6 +1,8 @@
-# Landing profesional biográfica
+# Portafolio profesional
 
-Aplicación web construida con Next.js App Router, React, TypeScript, Tailwind CSS, Framer Motion y Lucide React para presentar una biografía profesional, experiencia, habilidades, proyectos, formación, referencias y contacto.
+Aplicación web construida con Next.js App Router, React, TypeScript, Tailwind CSS y Lucide React para presentar un perfil profesional, experiencia, habilidades, proyectos, formación, referencias y contacto.
+
+Incluye un creador de CV en `/cv-builder`, con selección de plantillas, edición en vivo, autoguardado local y exportación a PDF desde el navegador.
 
 ## Estructura
 
@@ -8,12 +10,15 @@ Aplicación web construida con Next.js App Router, React, TypeScript, Tailwind C
 src/
  ├── app/
  │   ├── api/contact/route.ts
+ │   ├── cv-builder/page.tsx
  │   ├── globals.css
  │   ├── layout.tsx
  │   ├── metadata.ts
  │   └── page.tsx
  ├── components/
+ │   └── cv-builder/
  ├── data/profile.ts
+ ├── data/cv.ts
  ├── lib/utils.ts
  └── types/profile.ts
 ```
@@ -21,6 +26,8 @@ src/
 ## Personalización
 
 Edita `src/data/profile.ts` para cambiar nombre, biografía, experiencia, habilidades, proyectos, formación, testimonios y datos de contacto.
+
+Edita `src/data/cv.ts` para cambiar las plantillas disponibles y los datos iniciales del creador de CV.
 
 ## Variables de entorno
 

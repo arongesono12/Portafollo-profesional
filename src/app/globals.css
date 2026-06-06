@@ -141,3 +141,62 @@ select {
   height: 100%;
   display: block;
 }
+
+.cv-template-modern {
+  border-top: 8px solid #22d3ee;
+}
+
+.cv-template-classic {
+  border: 1px solid #d1d5db;
+}
+
+.cv-template-creative {
+  border-top: 8px solid #38bdf8;
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: A4;
+  }
+
+  body {
+    background: #ffffff;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .cv-document,
+  .cv-document * {
+    visibility: visible;
+  }
+
+  .cv-builder-shell {
+    min-height: 0;
+    background: #ffffff;
+  }
+
+  .cv-builder-toolbar,
+  .cv-editor-panel,
+  .cv-preview-area > div:first-child {
+    display: none;
+  }
+
+  .cv-preview-area {
+    border: 0;
+    padding: 0;
+    background: #ffffff;
+    box-shadow: none;
+  }
+
+  .cv-document {
+    position: absolute;
+    inset: 0;
+    width: 210mm;
+    max-width: none;
+    min-height: 297mm;
+    box-shadow: none;
+  }
+}

@@ -1,5 +1,3 @@
-"use client";
-
 import { GraduationCap, MapPin } from "lucide-react";
 
 import { profile } from "@/data/profile";
