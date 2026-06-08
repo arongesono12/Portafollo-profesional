@@ -22,6 +22,12 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={`${roboto.variable} min-h-screen font-sans antialiased`}>
+        <a
+          href="#inicio"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-black focus:text-slate-950 focus:outline-none"
+        >
+          Saltar al contenido
+        </a>
         {children}
       </body>
     </html>

@@ -4,7 +4,7 @@ import { profile } from "@/data/profile";
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[#091315] py-16">
+    <section className="bg-surface-raised py-16">
       <div className="section-shell">
         <h2 className="section-title">REFERENCIAS</h2>
 

@@ -33,12 +33,12 @@ export function Navbar() {
       className={cn(
         "z-50 border-b transition-all duration-300",
         scrolled
-          ? "fixed inset-x-0 top-0 border-cyan-300/15 bg-[#081112]/95 shadow-lg shadow-black/20 backdrop-blur-xl"
-          : "border-cyan-300/10 bg-[#081112]/90 backdrop-blur-md",
+          ? "fixed inset-x-0 top-0 border-cyan-300/15 bg-surface-base/95 shadow-lg shadow-black/20 backdrop-blur-xl"
+          : "border-cyan-300/10 bg-surface-base/90 backdrop-blur-md",
       )}
     >
       <nav className="section-shell flex h-16 items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3 text-white">
+        <a href="#inicio" className="flex items-center gap-3 rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
           <Image
             src="/logo/logo%20blanco.png"
             alt="Logo de ARON ESONO"
@@ -60,14 +60,14 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm font-bold text-slate-200 transition hover:text-cyan-300"
+              className="rounded-full px-3 py-2 text-sm font-bold text-slate-200 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               {item.label}
             </a>
           ))}
           <a
             href={profile.cvUrl}
-            className="ml-2 inline-flex h-9 items-center gap-2 rounded-full border border-cyan-300/70 px-4 text-sm font-black text-cyan-300 transition hover:bg-cyan-300 hover:text-slate-950"
+            className="ml-2 inline-flex h-9 items-center gap-2 rounded-full border border-cyan-300/70 px-4 text-sm font-black text-cyan-300 transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download size={14} /> Crear CV
           </a>
@@ -77,21 +77,21 @@ export function Navbar() {
           type="button"
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           onClick={() => setIsOpen((value) => !value)}
-          className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 text-cyan-100 lg:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 text-cyan-100 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
         >
           {isOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-cyan-300/10 bg-[#081112] lg:hidden">
+        <div className="border-t border-cyan-300/10 bg-surface-base lg:hidden">
           <div className="section-shell grid py-3">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-xl px-3 py-3 text-sm font-medium text-slate-200 hover:bg-cyan-300/10"
+                className="rounded-xl px-3 py-3 text-sm font-medium text-slate-200 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               >
                 {item.label}
               </a>

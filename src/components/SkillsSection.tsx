@@ -23,7 +23,7 @@ const skills = [
 
 export function SkillsSection() {
   return (
-    <section id="habilidades" className="bg-[#091315] py-11">
+    <section id="habilidades" className="bg-surface-raised py-11">
       <div className="section-shell">
         <h2 className="section-title">HABILIDADES</h2>
 

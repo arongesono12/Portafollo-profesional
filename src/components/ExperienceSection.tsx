@@ -4,7 +4,7 @@ import { profile } from "@/data/profile";
 
 export function ExperienceSection() {
   return (
-    <section id="experiencia" className="bg-[#081112] py-12">
+    <section id="experiencia" className="bg-surface-base py-12">
       <div className="section-shell">
         <h2 className="section-title">EXPERIENCIA PROFESIONAL</h2>
 
@@ -33,10 +33,11 @@ export function ExperienceSection() {
                   <MapPin size={14} /> {item.location}
                 </p>
                 <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
-                <ul className="mt-3 space-y-1">
+                <ul className="mt-3 space-y-1.5">
                   {item.achievements.slice(0, 2).map((achievement) => (
-                    <li key={achievement} className="text-xs leading-5 text-slate-400">
-                      - {achievement}
+                    <li key={achievement} className="flex items-start gap-2 text-xs leading-5 text-slate-400">
+                      <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-cyan-400" aria-hidden="true" />
+                      {achievement}
                     </li>
                   ))}
                 </ul>

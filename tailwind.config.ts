@@ -7,10 +7,19 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        surface: {
+          base:   "rgb(var(--surface-base-rgb) / <alpha-value>)",
+          raised: "rgb(var(--surface-raised-rgb) / <alpha-value>)",
+          card:   "rgb(var(--surface-card-rgb) / <alpha-value>)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-roboto)"],
         mono: ["var(--font-roboto)"],
+      },
+      letterSpacing: {
+        eyebrow: "0.18em",
+        label:   "0.14em",
       },
     },
   },

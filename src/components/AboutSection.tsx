@@ -11,7 +11,7 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section id="sobre-mi" className="bg-[#091315] py-16">
+    <section id="sobre-mi" className="bg-surface-raised py-16">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div
         >

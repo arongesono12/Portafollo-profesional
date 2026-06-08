@@ -14,7 +14,7 @@ export function ProjectsSection() {
           {profile.projects.map((project) => (
             <article
               key={project.name}
-              className="overflow-hidden rounded-lg border border-cyan-300/20 bg-[#0b1719]/90 shadow-xl shadow-black/10"
+              className="overflow-hidden rounded-lg border border-cyan-300/20 bg-surface-card/90 shadow-xl shadow-black/10"
             >
               <div className="relative aspect-[16/9] bg-slate-900">
                 <Image
@@ -32,7 +32,7 @@ export function ProjectsSection() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-md border border-cyan-300/20 bg-cyan-300/10 px-2 py-1 text-[11px] font-bold text-cyan-200"
+                      className="rounded-md border border-cyan-300/20 bg-cyan-300/10 px-2 py-1 text-xs font-bold text-cyan-200"
                     >
                       {tech}
                     </span>
@@ -42,8 +42,10 @@ export function ProjectsSection() {
               <div className={cn("grid border-t border-cyan-300/15", project.repositoryUrl ? "sm:grid-cols-2" : "")}>
                 <a
                   href={project.liveUrl}
+                  target={project.liveUrl.startsWith("http") ? "_blank" : undefined}
+                  rel={project.liveUrl.startsWith("http") ? "noreferrer" : undefined}
                   className={cn(
-                    "inline-flex h-11 items-center justify-center gap-2 border-cyan-300/15 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10",
+                    "inline-flex h-11 items-center justify-center gap-2 border-cyan-300/15 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-300",
                     project.repositoryUrl ? "sm:border-r" : "",
                   )}
                 >
@@ -54,7 +56,7 @@ export function ProjectsSection() {
                     href={project.repositoryUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-11 items-center justify-center gap-2 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10"
+                    className="inline-flex h-11 items-center justify-center gap-2 text-xs font-black text-cyan-300 transition hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-cyan-300"
                   >
                     Código GitHub <Github size={14} />
                   </a>

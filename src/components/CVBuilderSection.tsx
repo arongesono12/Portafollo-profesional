@@ -3,10 +3,10 @@ import type { ReactNode } from "react";
 
 export function CVBuilderSection() {
   return (
-    <section id="crear-cv" className="bg-[#081112] py-14">
+    <section id="crear-cv" className="bg-surface-base py-14">
       <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">
+          <p className="text-xs font-black uppercase tracking-eyebrow text-cyan-300">
             Herramienta incluida
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-normal text-white">
@@ -18,7 +18,7 @@ export function CVBuilderSection() {
           </p>
           <a
             href="/cv-builder"
-            className="mt-7 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 transition hover:bg-cyan-300"
+            className="mt-7 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 transition hover:bg-cyan-300 active:bg-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Abrir creador de CV <FileText size={17} />
           </a>

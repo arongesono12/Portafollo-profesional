@@ -35,19 +35,19 @@ export function HeroSection() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               href="#proyectos"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300 active:bg-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Ver Proyectos <ArrowRight size={17} />
             </a>
             <a
               href="#contacto"
-              className="inline-flex h-11 items-center justify-center rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10"
+              className="inline-flex h-11 items-center justify-center rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10 active:bg-cyan-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               Contáctame
             </a>
             <a
               href="/cv-builder"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10 active:bg-cyan-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
             >
               Crear CV <FileText size={17} />
             </a>
@@ -65,7 +65,7 @@ export function HeroSection() {
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={social.label}
-                  className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-300/10"
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
                 >
                   {iconName ? (
                     <SocialMediaIcon name={iconName} size={20} className="social-media-icon" />

@@ -23,6 +23,24 @@
   --foreground: #e5f7fb;
   --font-inter: "Inter", "Roboto", Arial, Helvetica, sans-serif;
   --font-roboto: "Roboto", "Inter", Arial, Helvetica, sans-serif;
+
+  /* Surface tokens — RGB channels enable Tailwind opacity modifiers (e.g. bg-surface-raised/90) */
+  --surface-base-rgb:   8, 17, 18;
+  --surface-raised-rgb: 9, 19, 21;
+  --surface-card-rgb:  11, 23, 25;
+
+  /* Accent token */
+  --accent-rgb: 34, 211, 238;
+  --accent: rgb(var(--accent-rgb));
+
+  /* Text tokens */
+  --text-primary:   #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted:     #94a3b8;
+
+  /* Border tokens */
+  --border-subtle:  rgba(34, 211, 238, 0.15);
+  --border-default: rgba(34, 211, 238, 0.30);
 }
 
 * {

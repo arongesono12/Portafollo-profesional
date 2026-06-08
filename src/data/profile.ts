@@ -168,7 +168,7 @@ export const profile: Profile = {
       role: "Head of Product",
       company: "TechCorp",
       quote:
-        "Mateo conecta visión técnica y ejecución. Sus soluciones son claras, escalables y fáciles de mantener.",
+        "Aron conecta visión técnica y ejecución. Sus soluciones son claras, escalables y fáciles de mantener.",
     },
     {
       name: "Miguel Torres",

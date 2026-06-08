@@ -4,7 +4,7 @@ import { profile } from "@/data/profile";
 
 export function EducationSection() {
   return (
-    <section id="formacion" className="bg-[#081112] py-16">
+    <section id="formacion" className="bg-surface-base py-16">
       <div className="section-shell">
         <h2 className="section-title">FORMACIÓN</h2>
 
