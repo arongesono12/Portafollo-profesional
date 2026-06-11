@@ -132,24 +132,24 @@ export const profile: Profile = {
       impact: "Regularización de alquileres y mejor experiencia para usuarios y propietarios.",
     },
     {
-      name: "Cloud Migration Tool",
+      name: "Agenda Corporativa",
       description:
-        "Herramienta para planificar migraciones cloud, monitorear servicios y reducir riesgos técnicos.",
-      technologies: ["Node.js", "Kubernetes", "AWS"],
-      image: "/project-design-system.svg",
+        "Herramienta para gestionar agendas corporativas y coordinar los trabajos entre los empleados de cada organización.",
+      technologies: ["Node.js", "Next.js", "TypeScript"],
+      image: "/project-agenda.png",
       status: "Activo",
-      liveUrl: "/",
-      impact: "Migraciones más ordenadas y menor tiempo de configuración.",
+      liveUrl: "https://agendasegesa.com",
+      impact: "Seguimiento eficiente de actividades y mejor coordinación entre empleados.",
     },
   ],
   education: [
     {
-      degree: "Máster en Ingeniería Cloud",
-      institution: "Universidad Politécnica de Madrid",
-      period: "2015 - 2017",
-      location: "Madrid, España",
+      degree: "Diplomatura en Aplicaciones Informáticas",
+      institution: "Instituto Nacional de Formación Profesional en Hostelería, Turismo, Artes y Oficios de Mongomo",
+      period: "2016 - 2018",
+      location: "Mongomo, Guinea Ecuatorial",
       description:
-        "Especialización en arquitectura distribuida, seguridad cloud y automatización de infraestructura.",
+        "Especialización en desarrollo de aplicaciones, programación y tecnologías de la información.",
       certificates: ["Arquitectura cloud", "DevOps avanzado"],
     },
     {
@@ -164,9 +164,9 @@ export const profile: Profile = {
   ],
   testimonials: [
     {
-      name: "Laura Sánchez",
-      role: "Head of Product",
-      company: "TechCorp",
+      name: "Carlos Hechavarria",
+      role: "Profesor de Desarrollo Web",
+      company: "INFH Mongomo",
       quote:
         "Aron conecta visión técnica y ejecución. Sus soluciones son claras, escalables y fáciles de mantener.",
     },
