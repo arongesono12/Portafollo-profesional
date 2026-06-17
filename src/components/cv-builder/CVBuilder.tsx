@@ -210,43 +210,43 @@ export function CVBuilder() {
   }
 
   return (
-    <main className="cv-builder-shell min-h-screen bg-[#081112] text-white">
-      <header className="cv-builder-toolbar border-b border-cyan-300/10 bg-[#081112]/95">
+    <main className="cv-builder-shell min-h-screen bg-surface-base text-primary">
+      <header className="cv-builder-toolbar border-b border-accent/10 bg-surface-base/95">
         <div className="mx-auto flex min-h-16 w-full min-w-0 max-w-7xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-6">
           <div className="flex min-w-0 items-center gap-3">
             <Link
               href="/"
-              className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-cyan-300/20 bg-white/5 text-cyan-100 transition hover:border-cyan-300 hover:text-cyan-300"
+              className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-accent/20 bg-surface-overlay text-secondary transition hover:border-accent hover:text-accent"
               aria-label="Volver al portafolio"
             >
               <ArrowLeft size={18} />
             </Link>
             <div className="min-w-0">
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                 Aron Esono
               </p>
-              <h1 className="text-xl font-black tracking-normal text-white sm:text-2xl">
+              <h1 className="text-xl font-black tracking-normal text-primary sm:text-2xl">
                 Crear CV
               </h1>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex h-9 items-center gap-2 rounded-lg border border-cyan-300/15 bg-white/5 px-3 text-xs font-bold text-slate-300">
+            <span className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent/15 bg-surface-overlay px-3 text-xs font-bold text-muted">
               <Save size={14} />
               Guardado local
             </span>
             <button
               type="button"
               onClick={resetBuilder}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-slate-600 px-3 text-xs font-black text-slate-200 transition hover:border-cyan-300 hover:text-cyan-300"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-accent/30 px-3 text-xs font-black text-secondary transition hover:border-accent hover:text-accent"
             >
               <RotateCcw size={14} /> Reiniciar
             </button>
             <button
               type="button"
               onClick={() => window.print()}
-              className="inline-flex h-9 items-center gap-2 rounded-lg bg-cyan-300 px-4 text-xs font-black text-slate-950 transition hover:bg-cyan-200"
+              className="inline-flex h-9 items-center gap-2 rounded-lg bg-accent px-4 text-xs font-black text-inverse transition hover:bg-accent-hover"
             >
               <Download size={14} /> Descargar PDF
             </button>
@@ -255,11 +255,11 @@ export function CVBuilder() {
       </header>
 
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[420px_1fr] lg:px-6">
-        <aside className="cv-editor-panel grid gap-5 self-start rounded-lg border border-cyan-300/15 bg-[#0b1719] p-4 shadow-2xl shadow-black/20">
+        <aside className="cv-editor-panel grid gap-5 self-start rounded-lg border border-accent/15 bg-surface-raised p-4 shadow-2xl shadow-black/20">
           <section>
             <div className="mb-3 flex items-center gap-2">
-              <LayoutTemplate size={18} className="text-cyan-300" />
-              <h2 className="text-sm font-black uppercase tracking-[0.14em] text-slate-200">
+              <LayoutTemplate size={18} className="text-accent" />
+              <h2 className="text-sm font-black uppercase tracking-[0.14em] text-secondary">
                 Plantillas
               </h2>
             </div>
@@ -272,8 +272,8 @@ export function CVBuilder() {
                   className={cn(
                     "rounded-lg border p-3 text-left transition",
                     templateId === template.id
-                      ? "border-cyan-300 bg-cyan-300/10"
-                      : "border-cyan-300/15 bg-white/5 hover:border-cyan-300/50",
+                      ? "border-accent bg-accent/10"
+                      : "border-accent/15 bg-surface-overlay hover:border-accent/50",
                   )}
                 >
                   <span className="flex items-center gap-3">
@@ -282,8 +282,8 @@ export function CVBuilder() {
                       style={{ backgroundColor: template.accent }}
                     />
                     <span>
-                      <span className="block text-sm font-black text-white">{template.name}</span>
-                      <span className="mt-1 block text-xs leading-5 text-slate-400">
+                      <span className="block text-sm font-black text-primary">{template.name}</span>
+                      <span className="mt-1 block text-xs leading-5 text-muted">
                         {template.description}
                       </span>
                     </span>
@@ -294,7 +294,7 @@ export function CVBuilder() {
           </section>
 
           <section className="grid gap-4">
-            <h2 className="text-sm font-black uppercase tracking-[0.14em] text-slate-200">
+            <h2 className="text-sm font-black uppercase tracking-[0.14em] text-secondary">
               Datos personales
             </h2>
             <AvatarField
@@ -320,9 +320,9 @@ export function CVBuilder() {
             title="Experiencia"
             onAdd={addExperience}
             items={data.experience.map((item) => (
-              <div key={item.id} className="rounded-lg border border-cyan-300/10 bg-white/5 p-3">
+              <div key={item.id} className="rounded-lg border border-accent/10 bg-surface-overlay p-3">
                 <div className="mb-3 flex items-start justify-between gap-3">
-                  <p className="text-xs font-black text-cyan-200">{item.role}</p>
+                  <p className="text-xs font-black text-accent">{item.role}</p>
                   <IconButton label="Eliminar experiencia" onClick={() => removeExperience(item.id)} />
                 </div>
                 <div className="grid gap-3">
@@ -339,9 +339,9 @@ export function CVBuilder() {
             title="Formación"
             onAdd={addEducation}
             items={data.education.map((item) => (
-              <div key={item.id} className="rounded-lg border border-cyan-300/10 bg-white/5 p-3">
+              <div key={item.id} className="rounded-lg border border-accent/10 bg-surface-overlay p-3">
                 <div className="mb-3 flex items-start justify-between gap-3">
-                  <p className="text-xs font-black text-cyan-200">{item.degree}</p>
+                  <p className="text-xs font-black text-accent">{item.degree}</p>
                   <IconButton label="Eliminar formación" onClick={() => removeEducation(item.id)} />
                 </div>
                 <div className="grid gap-3">
@@ -354,15 +354,15 @@ export function CVBuilder() {
           />
         </aside>
 
-        <section className="cv-preview-area min-w-0 rounded-lg border border-cyan-300/15 bg-[#0b1719] p-4 shadow-2xl shadow-black/20 lg:p-6">
+        <section className="cv-preview-area min-w-0 rounded-lg border border-accent/15 bg-surface-raised p-4 shadow-2xl shadow-black/20 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.18em] text-cyan-300">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
                 Vista previa
               </p>
-              <h2 className="mt-1 text-lg font-black text-white">{selectedTemplate.name}</h2>
+              <h2 className="mt-1 text-lg font-black text-primary">{selectedTemplate.name}</h2>
             </div>
-            <span className="hidden rounded-lg border border-cyan-300/15 px-3 py-2 text-xs font-bold text-slate-300 sm:inline-flex">
+            <span className="hidden rounded-lg border border-accent/15 px-3 py-2 text-xs font-bold text-muted sm:inline-flex">
               A4 adaptable
             </span>
           </div>
@@ -389,16 +389,16 @@ function AvatarField({
   onCropChange: (field: keyof CVAvatarCrop, value: number) => void;
 }) {
   return (
-    <div className="rounded-lg border border-cyan-300/15 bg-cyan-300/5 p-4">
+    <div className="rounded-lg border border-accent/15 bg-accent/5 p-4">
       <div className="flex items-center gap-4">
         <AvatarImage avatarUrl={avatarUrl} avatarCrop={avatarCrop} fullName={fullName} size="editor" />
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-black text-white">Imagen de avatar</p>
-          <p className="mt-1 text-xs leading-5 text-slate-400">
+          <p className="text-sm font-black text-primary">Imagen de avatar</p>
+          <p className="mt-1 text-xs leading-5 text-muted">
             Esta foto aparecerá antes del nombre en el CV.
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <label className="inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-lg bg-cyan-400 px-3 text-xs font-black text-slate-950 transition hover:bg-cyan-300">
+            <label className="inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-lg bg-accent px-3 text-xs font-black text-inverse transition hover:bg-accent-hover">
               <ImagePlus size={15} />
               Subir imagen
               <input
@@ -412,7 +412,7 @@ function AvatarField({
               <button
                 type="button"
                 onClick={onRemove}
-                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-cyan-300/20 px-3 text-xs font-black text-cyan-100 transition hover:border-cyan-300 hover:bg-cyan-300/10"
+                className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-accent/20 px-3 text-xs font-black text-muted transition hover:border-accent hover:bg-accent/10"
               >
                 <X size={14} />
                 Quitar
@@ -422,7 +422,7 @@ function AvatarField({
         </div>
       </div>
       {avatarUrl ? (
-        <div className="mt-4 grid gap-3 border-t border-cyan-300/10 pt-4">
+        <div className="mt-4 grid gap-3 border-t border-accent/10 pt-4">
           <RangeField
             label="Mover horizontal"
             value={avatarCrop.x}
@@ -470,9 +470,9 @@ function RangeField({
 }) {
   return (
     <label className="block">
-      <span className="flex items-center justify-between gap-3 text-xs font-bold text-slate-300">
+      <span className="flex items-center justify-between gap-3 text-xs font-bold text-muted">
         {label}
-        <span className="text-cyan-200">
+        <span className="text-accent">
           {label === "Zoom" ? `${Math.round(value * 100)}%` : `${Math.round(value)}%`}
         </span>
       </span>
@@ -483,7 +483,7 @@ function RangeField({
         step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
-        className="mt-2 h-2 w-full cursor-pointer accent-cyan-300"
+        className="mt-2 h-2 w-full cursor-pointer accent-accent"
       />
     </label>
   );
@@ -502,12 +502,12 @@ function Field({
 }) {
   return (
     <label className="block">
-      <span className="text-xs font-bold text-slate-300">{label}</span>
+      <span className="text-xs font-bold text-muted">{label}</span>
       <input
         type={type}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="mt-2 h-10 w-full rounded-lg border border-cyan-300/15 bg-[#081112] px-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-300/10"
+        className="mt-2 h-10 w-full rounded-lg border border-accent/15 bg-surface-base px-3 text-sm text-primary outline-none transition placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/10"
       />
     </label>
   );
@@ -526,12 +526,12 @@ function TextArea({
 }) {
   return (
     <label className="block">
-      <span className="text-xs font-bold text-slate-300">{label}</span>
+      <span className="text-xs font-bold text-muted">{label}</span>
       <textarea
         value={value}
         rows={rows}
         onChange={(event) => onChange(event.target.value)}
-        className="mt-2 w-full resize-y rounded-lg border border-cyan-300/15 bg-[#081112] px-3 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300 focus:ring-4 focus:ring-cyan-300/10"
+        className="mt-2 w-full resize-y rounded-lg border border-accent/15 bg-surface-base px-3 py-3 text-sm leading-6 text-primary outline-none transition placeholder:text-muted focus:border-accent focus:ring-4 focus:ring-accent/10"
       />
     </label>
   );
@@ -549,11 +549,11 @@ function EditableList({
   return (
     <section className="grid gap-3">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-black uppercase tracking-[0.14em] text-slate-200">{title}</h2>
+        <h2 className="text-sm font-black uppercase tracking-[0.14em] text-secondary">{title}</h2>
         <button
           type="button"
           onClick={onAdd}
-          className="inline-flex size-9 items-center justify-center rounded-lg border border-cyan-300/20 text-cyan-200 transition hover:border-cyan-300 hover:bg-cyan-300/10"
+          className="inline-flex size-9 items-center justify-center rounded-lg border border-accent/20 text-accent transition hover:border-accent hover:bg-accent/10"
           aria-label={`Añadir ${title.toLowerCase()}`}
         >
           <Plus size={16} />
@@ -569,7 +569,7 @@ function IconButton({ label, onClick }: { label: string; onClick: () => void }) 
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-red-300/20 text-red-200 transition hover:border-red-300 hover:bg-red-300/10"
+      className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-red-400/30 text-red-400 transition hover:border-red-400 hover:bg-red-400/10"
       aria-label={label}
     >
       <Trash2 size={14} />

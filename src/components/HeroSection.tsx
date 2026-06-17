@@ -1,7 +1,10 @@
+"use client";
+
 import { ArrowRight, FileText, Github, Globe2, Mail } from "lucide-react";
 import Image from "next/image";
 
 import { profile } from "@/data/profile";
+import { useTheme } from "./ThemeProvider";
 import { SocialMediaIcon } from "./SocialMediaIcon";
 
 const fallbackIconMap = {
@@ -15,45 +18,53 @@ const socialMediaIconMap: Partial<Record<(typeof profile.socials)[number]["icon"
 };
 
 export function HeroSection() {
+  const { theme } = useTheme();
   const [firstName, lastName] = profile.name.split(" ");
 
   return (
     <section id="inicio" className="portal-surface">
       <div className="section-shell relative z-10 grid min-h-[430px] items-center gap-8 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-10">
         <div className="max-w-2xl">
-          <p className="text-4xl font-black uppercase leading-[1.05] tracking-normal text-white sm:text-5xl">
-            ¡Hola!
-            <span className="block">
+          <p className="text-4xl font-black uppercase leading-[1.05] tracking-normal text-primary sm:text-5xl">
+            <span className="hero-text-in" style={{ animationDelay: "0.2s" }}>
+              ¡Hola!
+            </span>
+            <span className="hero-text-in-right block" style={{ animationDelay: "0.5s" }}>
               Soy <span className="cyan-text">{firstName} {lastName}</span>.
             </span>
-            <span className="block">{profile.title}.</span>
+            <span className="hero-text-in block" style={{ animationDelay: "0.7s" }}>
+              {profile.title}.
+            </span>
           </p>
-          <p className="mt-5 max-w-xl text-base font-medium leading-7 text-slate-300">
+          <p
+            className="hero-slide-up mt-5 max-w-xl text-base font-medium leading-7 text-secondary"
+            style={{ animationDelay: "1.0s" }}
+          >
             {profile.tagline}
           </p>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className="hero-text-in-right mt-7 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: "1.4s" }}>
             <a
               href="#proyectos"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:bg-cyan-300 active:bg-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-5 text-sm font-black text-inverse shadow-lg shadow-accent/20 transition hover:bg-accent/80 active:bg-accent/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               Ver Proyectos <ArrowRight size={17} />
             </a>
             <a
               href="#contacto"
-              className="inline-flex h-11 items-center justify-center rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10 active:bg-cyan-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              className="inline-flex h-11 items-center justify-center rounded-lg border border-accent/45 px-5 text-sm font-black text-accent/90 transition hover:bg-accent/10 active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Contáctame
             </a>
             <a
               href="/cv-builder"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-cyan-300/45 px-5 text-sm font-black text-cyan-200 transition hover:bg-cyan-300/10 active:bg-cyan-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-accent/45 px-5 text-sm font-black text-accent/90 transition hover:bg-accent/10 active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               Crear CV <FileText size={17} />
             </a>
           </div>
 
-          <div className="mt-7 flex flex-wrap gap-3">
+          <div className="hero-text-in mt-7 flex flex-wrap gap-3" style={{ animationDelay: "1.9s" }}>
             {profile.socials.map((social) => {
               const iconName = socialMediaIconMap[social.icon];
               const FallbackIcon = fallbackIconMap[social.icon as keyof typeof fallbackIconMap];
@@ -65,12 +76,12 @@ export function HeroSection() {
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noreferrer" : undefined}
                   aria-label={social.label}
-                  className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-accent/25 bg-surface-overlay transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 active:scale-95 active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {iconName ? (
                     <SocialMediaIcon name={iconName} size={20} className="social-media-icon" />
                   ) : FallbackIcon ? (
-                    <FallbackIcon className="text-cyan-100" size={19} />
+                    <FallbackIcon className="text-accent/80" size={19} />
                   ) : null}
                 </a>
               );
@@ -78,9 +89,9 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mx-auto w-full max-w-[360px]">
-          <div className="relative aspect-square rounded-full bg-gradient-to-br from-cyan-300 via-cyan-500 to-slate-950 p-1.5 shadow-[0_28px_90px_rgba(34,211,238,0.28)]">
-            <div className="relative size-full overflow-hidden rounded-full border border-cyan-100/35 bg-[#071112]">
+        <div className="hero-avatar-in mx-auto w-full max-w-[360px]" style={{ animationDelay: "0.3s" }}>
+          <div className={`avatar-ring relative aspect-square rounded-full bg-gradient-to-br from-accent via-accent/60 to-surface-base p-1.5 ${theme !== "light" ? "shadow-[0_28px_90px_rgb(var(--accent-rgb)/0.28)]" : ""}`}>
+            <div className="relative size-full overflow-hidden rounded-full border border-accent/20 bg-surface-base">
               <div className="avatar-glow" />
               <Image
                 src={profile.avatar}

@@ -21,6 +21,7 @@ export function SocialMediaIcon({ name, size = 20, className, title }: SocialMed
 
   return (
     <span
+      suppressHydrationWarning
       aria-hidden={title ? undefined : true}
       aria-label={title}
       className={className}

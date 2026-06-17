@@ -8,7 +8,7 @@ export const profile: Profile = {
     "Full Stack Web & Mobile Developer | React • Next.js • React Native • Supabase",
   avatar: "/profile-avatar.png",
   email: "contacto@aronesono.dev",
-  location: "Madrid, España",
+  location: "Malabo, Guinea Ecuatorial",
   cvUrl: "/cv-builder",
   yearsOfExperience: 7,
   specialty: "Full stack, cloud architecture, DevOps y productos web escalables",
@@ -18,9 +18,9 @@ export const profile: Profile = {
     "Diseñar plataformas cloud modernas, rápidas y mantenibles para equipos que necesitan crecer sin perder control técnico.",
   bio: "Soy desarrollador full stack y arquitecto cloud. Combino frontend moderno, backend robusto e infraestructura escalable para crear productos digitales de alto rendimiento. Me enfoco en código limpio, experiencia de usuario y despliegues confiables.",
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/", icon: "linkedin" },
-    { label: "GitHub", href: "https://github.com/", icon: "github" },
-    { label: "Portfolio", href: "/", icon: "globe" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/aronesono", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/aronesono12", icon: "github" },
+    { label: "Portfolio", href: "https://aronesono.dev", icon: "globe" },
     { label: "Email", href: "mailto:contacto@aronesono.dev", icon: "mail" },
   ],
   experience: [

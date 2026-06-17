@@ -1,11 +1,12 @@
 "use client";
 
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, Sun, Moon, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
+import { useTheme } from "./ThemeProvider";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -19,6 +20,7 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -31,67 +33,88 @@ export function Navbar() {
     <>
     <header
       className={cn(
-        "z-50 border-b transition-all duration-300",
+        "theme-transition z-50 border-b",
         scrolled
-          ? "fixed inset-x-0 top-0 border-cyan-300/15 bg-surface-base/95 shadow-lg shadow-black/20 backdrop-blur-xl"
-          : "border-cyan-300/10 bg-surface-base/90 backdrop-blur-md",
+          ? "fixed inset-x-0 top-0 border-accent/15 shadow-lg shadow-black/20 backdrop-blur-xl"
+          : "border-accent/10 bg-surface-base/90 backdrop-blur-md",
       )}
     >
-      <nav className="section-shell flex h-16 items-center justify-between">
-        <a href="#inicio" className="flex items-center gap-3 rounded text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+      <nav className="section-shell flex h-16 items-center">
+        <a href="#inicio" className="flex shrink-0 items-center gap-3 rounded text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
           <Image
-            src="/logo/logo%20blanco.png"
+            src={theme === "light" ? "/logo/logo.png" : "/logo/logo%20blanco.png"}
             alt="Logo de ARON ESONO"
             width={42}
             height={42}
             priority
+            suppressHydrationWarning
             className="h-10 w-auto object-contain"
           />
-          <span className="text-sm font-black uppercase leading-tight tracking-normal text-white">
+          <span className="text-sm font-black uppercase leading-tight tracking-normal text-primary">
             ARON ESONO
-            <span className="block text-xs font-bold text-cyan-100/80">
+            <span className="block text-xs font-bold text-accent/70">
               Tech Full Stack
             </span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden flex-1 items-center justify-center gap-1 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm font-bold text-slate-200 transition hover:text-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              className="rounded-full px-3 py-2 text-sm font-bold text-secondary transition hover:bg-accent/10 hover:text-accent active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {item.label}
             </a>
           ))}
+        </div>
+
+        <div className="flex shrink-0 items-center gap-2">
+          <button
+            type="button"
+            onClick={toggle}
+            suppressHydrationWarning
+            aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
+            className="hidden lg:inline-flex size-9 items-center justify-center rounded-full border border-accent/30 text-secondary transition hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
           <a
             href={profile.cvUrl}
-            className="ml-2 inline-flex h-9 items-center gap-2 rounded-full border border-cyan-300/70 px-4 text-sm font-black text-cyan-300 transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="hidden lg:inline-flex h-9 items-center gap-2 rounded-full border border-accent/70 px-4 text-sm font-black text-accent transition hover:bg-accent hover:text-inverse active:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download size={14} /> Crear CV
           </a>
+          <button
+            type="button"
+            onClick={toggle}
+            suppressHydrationWarning
+            aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
+            className="inline-flex size-10 items-center justify-center rounded-full border border-accent/25 bg-surface-overlay text-accent/80 transition hover:bg-accent/10 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <button
+            type="button"
+            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setIsOpen((value) => !value)}
+            className="inline-flex size-10 items-center justify-center rounded-full border border-accent/25 bg-surface-overlay text-accent/80 transition hover:bg-accent/10 active:bg-accent/20 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-
-        <button
-          type="button"
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setIsOpen((value) => !value)}
-          className="inline-flex size-10 items-center justify-center rounded-full border border-cyan-300/25 bg-white/5 text-cyan-100 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </nav>
 
       {isOpen ? (
-        <div className="border-t border-cyan-300/10 bg-surface-base lg:hidden">
+        <div className="border-t border-accent/10 bg-surface-base lg:hidden">
           <div className="section-shell grid py-3">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="rounded-xl px-3 py-3 text-sm font-medium text-slate-200 hover:bg-cyan-300/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+                className="rounded-xl px-3 py-3 text-sm font-medium text-secondary hover:bg-accent/10 active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 {item.label}
               </a>

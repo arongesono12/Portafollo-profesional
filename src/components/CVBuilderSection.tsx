@@ -1,24 +1,28 @@
+"use client";
+
 import { FileText, LayoutTemplate, PenLine } from "lucide-react";
 import type { ReactNode } from "react";
+import { useInView } from "@/hooks/useInView";
 
 export function CVBuilderSection() {
+  const { ref, inView } = useInView<HTMLElement>();
   return (
-    <section id="crear-cv" className="bg-surface-base py-14">
+    <section ref={ref} id="crear-cv" className={`bg-surface-base py-14${inView ? " section-in-up" : " opacity-0"}`}>
       <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <p className="text-xs font-black uppercase tracking-eyebrow text-cyan-300">
+          <p className="text-xs font-black uppercase tracking-eyebrow text-accent">
             Herramienta incluida
           </p>
-          <h2 className="mt-4 text-3xl font-black tracking-normal text-white">
+          <h2 className="mt-4 text-3xl font-black tracking-normal text-primary">
             Crea un CV profesional desde el portafolio.
           </h2>
-          <p className="mt-5 text-sm leading-7 text-slate-300">
+          <p className="mt-5 text-sm leading-7 text-secondary">
             Los visitantes pueden elegir una plantilla, completar sus datos y ver el resultado
             en vivo antes de exportarlo como PDF desde el navegador.
           </p>
           <a
             href="/cv-builder"
-            className="mt-7 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-cyan-400 px-5 text-sm font-black text-slate-950 transition hover:bg-cyan-300 active:bg-cyan-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="mt-7 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-5 text-sm font-black text-inverse transition hover:bg-accent/80 active:bg-accent/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Abrir creador de CV <FileText size={17} />
           </a>
@@ -36,12 +40,12 @@ export function CVBuilderSection() {
 
 function Feature({ icon, title, text }: { icon: ReactNode; title: string; text: string }) {
   return (
-    <div className="rounded-lg border border-cyan-300/15 bg-white/5 p-5">
-      <div className="mb-4 inline-flex size-10 items-center justify-center rounded-full bg-cyan-300/10 text-cyan-300">
+    <div className="card-glow hover-glass rounded-lg border border-accent/15 bg-surface-overlay p-5">
+      <div className="mb-4 inline-flex size-10 items-center justify-center rounded-full bg-accent/10 text-accent">
         {icon}
       </div>
-      <h3 className="text-sm font-black text-white">{title}</h3>
-      <p className="mt-2 text-xs leading-5 text-slate-300">{text}</p>
+      <h3 className="text-sm font-black text-primary">{title}</h3>
+      <p className="mt-2 text-xs leading-5 text-secondary">{text}</p>
     </div>
   );
 }

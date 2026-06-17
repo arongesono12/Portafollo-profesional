@@ -11,6 +11,18 @@ const config: Config = {
           base:   "rgb(var(--surface-base-rgb) / <alpha-value>)",
           raised: "rgb(var(--surface-raised-rgb) / <alpha-value>)",
           card:   "rgb(var(--surface-card-rgb) / <alpha-value>)",
+          overlay: "rgb(var(--surface-overlay-rgb) / 0.05)",
+          solid: "var(--surface-solid)",
+        },
+        primary:   "var(--text-primary)",
+        secondary: "var(--text-secondary)",
+        muted:     "var(--text-muted)",
+        inverse:   "var(--text-inverse)",
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
+        "accent-hover": "rgb(var(--accent-hover-rgb) / <alpha-value>)",
+        border: {
+          subtle:  "var(--border-subtle)",
+          DEFAULT: "var(--border-default)",
         },
       },
       fontFamily: {
