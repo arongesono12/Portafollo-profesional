@@ -19,6 +19,11 @@ import { useEffect, useMemo, useState } from "react";
 
 import { initialCVData, cvTemplates } from "@/data/cv";
 import { cn } from "@/lib/utils";
+import {
+  AvatarImage as SharedAvatarImage,
+  CVPreview as RegisteredCVPreview,
+  TemplateThumbnail,
+} from "./templates";
 import type {
   CVAvatarCrop,
   CVData,
@@ -33,6 +38,12 @@ type StoredCV = {
   templateId: CVTemplateId;
   data: CVData;
 };
+
+function normalizeTemplateId(templateId: unknown): CVTemplateId {
+  return cvTemplates.some((template) => template.id === templateId)
+    ? (templateId as CVTemplateId)
+    : "modern";
+}
 
 function normalizeCVData(data: Partial<CVData> | undefined): CVData {
   return {
@@ -60,7 +71,7 @@ function getStoredCV(): StoredCV {
   try {
     const parsed = JSON.parse(stored) as Partial<StoredCV>;
     return {
-      templateId: parsed.templateId ?? "modern",
+      templateId: normalizeTemplateId(parsed.templateId),
       data: normalizeCVData(parsed.data),
     };
   } catch {
@@ -277,29 +288,31 @@ export function CVBuilder() {
                 Plantillas
               </h2>
             </div>
-            <div className="grid gap-3">
+            <div className="grid grid-cols-2 gap-3">
               {cvTemplates.map((template) => (
                 <button
                   key={template.id}
                   type="button"
                   onClick={() => setBuilder((current) => ({ ...current, templateId: template.id }))}
                   className={cn(
-                    "rounded-lg border p-3 text-left transition",
+                    "rounded-lg border p-2 text-left transition",
                     templateId === template.id
                       ? "border-accent bg-accent/10"
                       : "border-accent/15 bg-surface-overlay hover:border-accent/50",
                   )}
                 >
-                  <span className="flex items-center gap-3">
-                    <span
-                      className="inline-flex size-9 rounded-md border border-white/15"
-                      style={{ backgroundColor: template.accent }}
-                    />
-                    <span>
-                      <span className="block text-sm font-black text-primary">{template.name}</span>
-                      <span className="mt-1 block text-xs leading-5 text-muted">
-                        {template.description}
-                      </span>
+                  <TemplateThumbnail templateId={template.id} accent={template.accent} />
+                  <span className="mt-2 block">
+                    <span className="block text-sm font-black text-primary">{template.name}</span>
+                    <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
+                      {template.category === "technical"
+                        ? "Técnica"
+                        : template.category === "creative"
+                          ? "Creativa"
+                          : "Profesional"}
+                    </span>
+                    <span className="mt-1 block text-xs leading-5 text-muted">
+                      {template.description}
                     </span>
                   </span>
                 </button>
@@ -380,7 +393,7 @@ export function CVBuilder() {
               A4 adaptable
             </span>
           </div>
-          <CVPreview data={data} templateId={templateId} />
+          <RegisteredCVPreview data={data} templateId={templateId} />
         </section>
       </div>
     </main>
@@ -405,7 +418,7 @@ function AvatarField({
   return (
     <div className="rounded-lg border border-accent/15 bg-accent/5 p-4">
       <div className="flex items-center gap-4">
-        <AvatarImage avatarUrl={avatarUrl} avatarCrop={avatarCrop} fullName={fullName} size="editor" />
+        <SharedAvatarImage avatarUrl={avatarUrl} avatarCrop={avatarCrop} fullName={fullName} size="editor" />
         <div className="min-w-0 flex-1">
           <p className="text-sm font-black text-primary">Imagen de avatar</p>
           <p className="mt-1 text-xs leading-5 text-muted">
@@ -591,7 +604,9 @@ function IconButton({ label, onClick }: { label: string; onClick: () => void }) 
   );
 }
 
-function CVPreview({ data, templateId }: { data: CVData; templateId: CVTemplateId }) {
+void LegacyCVPreview;
+
+function LegacyCVPreview({ data, templateId }: { data: CVData; templateId: CVTemplateId }) {
   const skills = data.skills
     .split(",")
     .map((skill) => skill.trim())

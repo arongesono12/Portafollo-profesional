@@ -6,18 +6,42 @@ export const cvTemplates: CVTemplate[] = [
     name: "Moderna",
     description: "Perfil técnico con bloques claros, acento lateral y lectura rápida.",
     accent: "#22d3ee",
+    category: "technical",
   },
   {
     id: "classic",
     name: "Clásica",
     description: "Formato sobrio para candidaturas corporativas y procesos formales.",
     accent: "#0f172a",
+    category: "professional",
   },
   {
     id: "creative",
     name: "Creativa",
     description: "Diseño expresivo para perfiles digitales, producto y diseño.",
     accent: "#38bdf8",
+    category: "creative",
+  },
+  {
+    id: "minimal",
+    name: "Minimal ATS",
+    description: "Una columna, sin adornos innecesarios y optimizada para sistemas ATS.",
+    accent: "#334155",
+    category: "professional",
+  },
+  {
+    id: "developer",
+    name: "Developer",
+    description: "Cabecera tipo terminal y foco directo en stack, proyectos y experiencia.",
+    accent: "#10b981",
+    category: "technical",
+  },
+  {
+    id: "executive",
+    name: "Ejecutiva",
+    description: "Jerarquía editorial para perfiles senior, liderazgo y consultoría.",
+    accent: "#1d4ed8",
+    category: "professional",
   },
 ];
 

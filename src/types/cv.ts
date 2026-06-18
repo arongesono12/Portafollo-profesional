@@ -1,4 +1,10 @@
-export type CVTemplateId = "modern" | "classic" | "creative";
+export type CVTemplateId =
+  | "modern"
+  | "classic"
+  | "creative"
+  | "minimal"
+  | "developer"
+  | "executive";
 
 export type CVExperience = {
   id: string;
@@ -40,4 +46,5 @@ export type CVTemplate = {
   name: string;
   description: string;
   accent: string;
+  category: "professional" | "technical" | "creative";
 };

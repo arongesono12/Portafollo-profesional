@@ -267,6 +267,19 @@ select {
   border-top: 8px solid #38bdf8;
 }
 
+.cv-template-minimal {
+  border: 1px solid #cbd5e1;
+}
+
+.cv-template-developer {
+  border-top: 8px solid #10b981;
+}
+
+.cv-template-executive {
+  border: 1px solid #cbd5e1;
+  border-top: 8px solid #1d4ed8;
+}
+
 /* ─── Card hover — uses accent RGB with alpha for consistent cross-theme glow ─── */
 .card-glow {
   transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
