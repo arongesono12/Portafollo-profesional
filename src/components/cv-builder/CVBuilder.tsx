@@ -70,7 +70,8 @@ function getStoredCV(): StoredCV {
 }
 
 export function CVBuilder() {
-  const [builder, setBuilder] = useState<StoredCV>(getStoredCV);
+  const [builder, setBuilder] = useState<StoredCV>({ templateId: "modern", data: initialCVData });
+  const [hasLoadedStoredCV, setHasLoadedStoredCV] = useState(false);
   const { data, templateId } = builder;
 
   const selectedTemplate = useMemo(
@@ -79,8 +80,21 @@ export function CVBuilder() {
   );
 
   useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      setBuilder(getStoredCV());
+      setHasLoadedStoredCV(true);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    if (!hasLoadedStoredCV) {
+      return;
+    }
+
     window.localStorage.setItem(storageKey, JSON.stringify({ templateId, data }));
-  }, [data, templateId]);
+  }, [data, hasLoadedStoredCV, templateId]);
 
   function updateField(field: keyof CVData, value: string) {
     setBuilder((current) => ({ ...current, data: { ...current.data, [field]: value } }));

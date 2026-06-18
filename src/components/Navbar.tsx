@@ -4,9 +4,9 @@ import { Download, Menu, Sun, Moon, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
 import { useTheme } from "./ThemeProvider";
+import { MiCVPdf } from "./cv-builder/MiCVPdf";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
@@ -20,6 +20,7 @@ const navItems = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showMyCV, setShowMyCV] = useState(false);
   const { theme, toggle } = useTheme();
 
   useEffect(() => {
@@ -80,12 +81,13 @@ export function Navbar() {
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <a
-            href={profile.cvUrl}
+          <button
+            type="button"
+            onClick={() => setShowMyCV(true)}
             className="hidden lg:inline-flex h-9 items-center gap-2 rounded-full border border-accent/70 px-4 text-sm font-black text-accent transition hover:bg-accent hover:text-inverse active:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Download size={14} /> Crear CV
-          </a>
+          </button>
           <button
             type="button"
             onClick={toggle}
@@ -124,6 +126,7 @@ export function Navbar() {
       ) : null}
     </header>
       {scrolled ? <div aria-hidden="true" className="h-16" /> : null}
+      {showMyCV ? <MiCVPdf onClose={() => setShowMyCV(false)} /> : null}
     </>
   );
 }

@@ -18,8 +18,8 @@ export const profile: Profile = {
     "Diseñar plataformas cloud modernas, rápidas y mantenibles para equipos que necesitan crecer sin perder control técnico.",
   bio: "Soy desarrollador full stack y arquitecto cloud. Combino frontend moderno, backend robusto e infraestructura escalable para crear productos digitales de alto rendimiento. Me enfoco en código limpio, experiencia de usuario y despliegues confiables.",
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/aronesono", icon: "linkedin" },
-    { label: "GitHub", href: "https://github.com/aronesono12", icon: "github" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/aronesonoondo", icon: "linkedin" },
+    { label: "GitHub", href: "https://github.com/arongesono12", icon: "github" },
     { label: "Portfolio", href: "https://aronesono.dev", icon: "globe" },
     { label: "Email", href: "mailto:contacto@aronesono.dev", icon: "mail" },
   ],
