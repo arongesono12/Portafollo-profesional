@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
 type Theme = "dark" | "light";
@@ -14,26 +14,26 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const storageKey = "portfolio-theme";
 
-function getInitial(): Theme {
-  if (typeof window === "undefined") return "dark";
-  const stored = localStorage.getItem(storageKey);
-  if (stored === "light" || stored === "dark") return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const t = getInitial();
-    if (typeof document !== "undefined") {
-      document.documentElement.setAttribute("data-theme", t);
-    }
-    return t;
-  });
+  const [theme, setTheme] = useState<Theme>("dark");
+
+  useEffect(() => {
+    const stored = window.localStorage.getItem(storageKey);
+    const initialTheme =
+      stored === "light" || stored === "dark"
+        ? stored
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+    document.documentElement.setAttribute("data-theme", initialTheme);
+    setTheme(initialTheme);
+  }, []);
 
   const toggle = useCallback(() => {
     setTheme((prev) => {
       const next = prev === "dark" ? "light" : "dark";
-      localStorage.setItem(storageKey, next);
+      window.localStorage.setItem(storageKey, next);
       document.documentElement.setAttribute("data-theme", next);
       return next;
     });
