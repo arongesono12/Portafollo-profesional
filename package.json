@@ -15,6 +15,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-native-ico-social-media": "^7.0.1",
+    "sileo": "^0.1.5",
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
