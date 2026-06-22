@@ -26,8 +26,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
           ? "dark"
           : "light";
 
-    document.documentElement.setAttribute("data-theme", initialTheme);
-    setTheme(initialTheme);
+    const timeoutId = window.setTimeout(() => {
+      document.documentElement.setAttribute("data-theme", initialTheme);
+      setTheme(initialTheme);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   const toggle = useCallback(() => {

@@ -2,6 +2,7 @@
 
 import { ArrowRight, FileText, Github, Globe2, Mail } from "lucide-react";
 import Image from "next/image";
+import heroAvatar from "../../public/profile-avatar.png";
 
 import { profile } from "@/data/profile";
 import { useTheme } from "./ThemeProvider";
@@ -90,18 +91,22 @@ export function HeroSection() {
         </div>
 
         <div className="hero-avatar-in mx-auto w-full max-w-[360px]" style={{ animationDelay: "0.3s" }}>
-          <div className={`avatar-ring relative aspect-square rounded-full bg-gradient-to-br from-accent via-accent/60 to-surface-base p-1.5 ${theme !== "light" ? "shadow-[0_28px_90px_rgb(var(--accent-rgb)/0.28)]" : ""}`}>
-            <div className="relative size-full overflow-hidden rounded-full border border-accent/20 bg-surface-base">
-              <div className="avatar-glow" />
-              <Image
-                src={profile.avatar}
-                alt={`Retrato profesional de ${profile.name}`}
-                fill
-                priority
-                sizes="(min-width: 1024px) 360px, 78vw"
-                className="object-cover object-[50%_8%]"
-              />
-            </div>
+          <div
+            className={`avatar-ring relative aspect-square ${
+              theme !== "light"
+                ? "drop-shadow-[0_28px_45px_rgb(var(--accent-rgb)/0.22)]"
+                : ""
+            }`}
+          >
+            <Image
+              src={heroAvatar}
+              alt={`Retrato profesional de ${profile.name}`}
+              fill
+              priority
+              placeholder="blur"
+              sizes="(min-width: 1024px) 360px, 78vw"
+              className="relative z-10 scale-[1.18] object-contain"
+            />
           </div>
         </div>
       </div>
