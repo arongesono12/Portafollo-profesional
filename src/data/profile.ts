@@ -25,58 +25,57 @@ export const profile: Profile = {
   ],
   experience: [
     {
-      role: "Senior Developer",
-      company: "TechCorp",
-      period: "2021 - Actualidad",
-      location: "Remoto",
+      role: "Monitoreo y flujo de corriente",
+      company: "Turbo Gas",
+      period: "2019 - 2020",
+      location: "Malabo, Guinea Ecuatorial",
       description:
-        "Liderazgo técnico en aplicaciones full stack, plataformas cloud y pipelines de entrega continua.",
+        "Registro y seguimiento del flujo de corriente, junto con tareas de asistencia operativa en la empresa Gas Turbo.",
       responsibilities: [
-        "Diseñar arquitecturas escalables con React, Node.js y servicios cloud.",
-        "Automatizar despliegues, observabilidad e integración continua.",
-        "Coordinar decisiones técnicas con producto, diseño y operaciones.",
+        "Registrar y controlar datos del flujo de corriente.",
+        "Prestar asistencia al equipo durante las operaciones.",
       ],
       achievements: [
-        "Reducción del 40% en tiempos de despliegue.",
-        "Migración exitosa de servicios críticos a infraestructura cloud.",
+        "Apoyo al control y seguimiento de las operaciones técnicas.",
+        "Experiencia trabajando bajo presión y coordinado con equipos operativos.",
       ],
-      technologies: ["React", "Node.js", "AWS", "Docker", "Kubernetes"],
+      technologies: ["Monitoreo", "Registro de datos", "Soporte operativo"],
     },
     {
-      role: "Cloud Engineer",
-      company: "FutureTech",
-      period: "2019 - 2021",
-      location: "Barcelona, España",
+      role: "Técnico informático",
+      company: "SEGESA",
+      period: "2020 - Actualidad",
+      location: "Malabo, Guinea Ecuatorial",
       description:
-        "Implementación de entornos cloud, APIs y soluciones de datos para productos B2B.",
+        "Trabajo en el departamento de IT de SEGESA, ofreciendo soporte técnico, mantenimiento de equipos y asistencia a usuarios.",
       responsibilities: [
-        "Construir APIs seguras y sistemas distribuidos.",
-        "Optimizar bases de datos y cargas de trabajo cloud.",
-        "Definir prácticas DevOps para equipos de desarrollo.",
+        "Diagnosticar y resolver incidencias informáticas.",
+        "Mantener equipos, aplicaciones y puestos de trabajo.",
+        "Asistir a usuarios y departamentos internos.",
       ],
       achievements: [
-        "Mejora del 32% en rendimiento de APIs principales.",
-        "Estandarización de entornos para desarrollo, staging y producción.",
+        "Participación continuada en el soporte tecnológico de la organización.",
+        "Resolución de problemas técnicos en entornos de trabajo reales.",
       ],
-      technologies: ["AWS", "PostgreSQL", "MongoDB", "GitHub Actions", "Terraform"],
+      technologies: ["Soporte técnico", "Hardware", "Software", "Redes"],
     },
     {
-      role: "Full Stack Developer",
-      company: "Nova Labs",
-      period: "2017 - 2019",
-      location: "Valencia, España",
+      role: "Implementación de One-Site",
+      company: "ARP Dynamics / SEGESA",
+      period: "2020 - 2023",
+      location: "Región Continental, Guinea Ecuatorial",
       description:
-        "Desarrollo de plataformas web, paneles internos y experiencias e-commerce.",
+        "Participación en el equipo seleccionado por SEGESA para instalar el nuevo sistema de cobros y gestión One-Site en la región continental del país.",
       responsibilities: [
-        "Crear interfaces responsive con React y TypeScript.",
-        "Integrar servicios backend y pasarelas de pago.",
-        "Mantener pruebas, documentación y control de calidad.",
+        "Apoyar la instalación y configuración del sistema.",
+        "Asistir a los equipos locales durante la implantación.",
+        "Colaborar en la puesta en marcha del nuevo flujo de cobros y gestión.",
       ],
       achievements: [
-        "Lanzamiento de 8 productos web para clientes comerciales.",
-        "Incremento de conversión tras optimizar flujos de compra.",
+        "Despliegue del sistema One-Site en la región continental.",
+        "Participación en un proyecto tecnológico de alcance nacional.",
       ],
-      technologies: ["React", "TypeScript", "Node.js", "Figma", "Git"],
+      technologies: ["One-Site", "Implantación", "Soporte", "Gestión de cobros"],
     },
   ],
   skillGroups: [
@@ -103,7 +102,11 @@ export const profile: Profile = {
     },
     {
       title: "Idiomas",
-      skills: [{ name: "Español nativo" }, { name: "Inglés profesional" }],
+      skills: [
+        { name: "Español nativo" },
+        { name: "Francés intermedio" },
+        { name: "Inglés intermedio" },
+      ],
     },
     {
       title: "Certificaciones",
@@ -144,23 +147,44 @@ export const profile: Profile = {
   ],
   education: [
     {
-      degree: "Diplomatura en Aplicaciones Informáticas",
-      institution: "Instituto Nacional de Formación Profesional en Hostelería, Turismo, Artes y Oficios de Mongomo",
-      period: "2016 - 2018",
+      degree: "Educación Secundaria",
+      institution: "INÉS Mongomo y Centro Patricio Lumumba",
+      period: "2004 - 2016",
       location: "Mongomo, Guinea Ecuatorial",
       description:
-        "Especialización en desarrollo de aplicaciones, programación y tecnologías de la información.",
-      certificates: ["Arquitectura cloud", "DevOps avanzado"],
+        "Formación secundaria cursada en el Instituto INÉS Mongomo de Guadalupe y en el Centro Patricio Lumumba.",
+      certificates: ["Educación secundaria"],
     },
     {
-      degree: "Grado en Ingeniería Informática",
-      institution: "Universidad de Valencia",
-      period: "2011 - 2015",
-      location: "Valencia, España",
+      degree: "Formación Superior en Aplicaciones Informáticas",
+      institution: "Instituto Nacional de Formación en Hostelería, Artes y Oficios de Mongomo",
+      period: "2016 - 2019",
+      location: "Mongomo, Guinea Ecuatorial",
       description:
-        "Formación en desarrollo de software, bases de datos, redes y diseño de sistemas.",
-      certificates: ["Tecnologías web"],
+        "Formación profesional en aplicaciones informáticas, obteniendo un certificado de reconocimiento como mejor alumno de la especialidad.",
+      certificates: ["Aplicaciones informáticas", "Reconocimiento al mejor alumno"],
     },
+    {
+      degree: "Aspectos básicos de la asistencia técnica",
+      institution: "Google Career Certificates · Coursera",
+      period: "2021 - 2023",
+      location: "Formación en línea",
+      description:
+        "Curso de formación en línea sobre los fundamentos de la asistencia técnica ofrecido por Google en la plataforma Coursera.",
+      certificates: ["Asistencia técnica", "Google · Coursera"],
+    },
+  ],
+  languages: [
+    { name: "Español", level: "Nativo", proficiency: 96 },
+    { name: "Francés", level: "Intermedio", proficiency: 74 },
+    { name: "Inglés", level: "Intermedio", proficiency: 52 },
+  ],
+  hobbies: [
+    { name: "Lectura", icon: "book" },
+    { name: "Música", icon: "music" },
+    { name: "Fútbol", icon: "football" },
+    { name: "Juegos", icon: "games" },
+    { name: "Culturismo", icon: "fitness" },
   ],
   testimonials: [
     {
@@ -169,13 +193,6 @@ export const profile: Profile = {
       company: "INFH Mongomo",
       quote:
         "Aron conecta visión técnica y ejecución. Sus soluciones son claras, escalables y fáciles de mantener.",
-    },
-    {
-      name: "Miguel Torres",
-      role: "CTO",
-      company: "FutureTech",
-      quote:
-        "Un perfil excelente para construir productos cloud sólidos sin perder sensibilidad por la experiencia de usuario.",
     },
   ],
 };

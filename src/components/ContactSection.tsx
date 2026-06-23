@@ -54,10 +54,14 @@ export function ContactSection() {
   const githubSocial = profile.socials.find((s) => s.icon === "github");
 
   return (
-    <section ref={ref} id="contacto" className={`tech-surface py-16${inView ? " section-in" : " opacity-0"}`}>
+    <section
+      ref={ref}
+      id="contacto"
+      className={`section-image-background section-bg-contact py-12${inView ? " section-in" : " opacity-0"}`}
+    >
       <div className="section-shell relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
-          <p className="text-xs font-black uppercase tracking-eyebrow text-accent">Contacto</p>
+          <p className="font-tech text-xs font-black uppercase tracking-eyebrow text-accent">Contacto</p>
           <h2 className="mt-4 text-3xl font-black tracking-normal text-primary">
             Hablemos de tu próximo proyecto o colaboración.
           </h2>

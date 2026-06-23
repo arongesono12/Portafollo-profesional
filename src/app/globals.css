@@ -2,28 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Variable.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/fonts/Inter-Italic-Variable.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
 /* ─── Dark theme (default) ─── */
 :root {
   --background: #081112;
   --foreground: #e5f7fb;
-  --font-inter: "Inter", "Roboto", Arial, Helvetica, sans-serif;
-  --font-roboto: "Roboto", "Inter", Arial, Helvetica, sans-serif;
 
   /* Surface tokens — space-separated for CSS Color Level 4 compatibility */
   --surface-base-rgb:   8 17 18;
@@ -144,7 +126,7 @@ body {
   overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-roboto);
+  font-family: var(--font-inter), var(--font-roboto), Arial, Helvetica, sans-serif;
   transition: background var(--transition-base), color var(--transition-base);
 }
 
@@ -153,6 +135,22 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+.portfolio-frame h1,
+.portfolio-frame h2,
+.portfolio-frame h3,
+.font-display {
+  font-family: var(--font-montserrat), var(--font-inter), sans-serif;
+}
+
+.font-tech {
+  font-family: var(--font-ibm-plex), var(--font-inter), sans-serif;
+}
+
+.cv-builder-shell,
+.cv-document {
+  font-family: var(--font-roboto), var(--font-inter), sans-serif;
 }
 
 ::selection {
@@ -200,6 +198,63 @@ select {
   background-size: 120px 120px;
 }
 
+/* ─── Section-specific image backgrounds ─── */
+.section-image-background {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.section-image-background::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--surface-base-rgb) / 0.78),
+    rgb(var(--surface-base-rgb) / 0.9)
+  );
+  pointer-events: none;
+}
+
+[data-theme="light"] .section-image-background::before {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--surface-base-rgb) / 0.88),
+    rgb(var(--surface-base-rgb) / 0.95)
+  );
+}
+
+.section-bg-projects {
+  background-image: url("/image/proyecto.png");
+}
+
+.section-bg-experience {
+  background-image: url("/image/expeciencia.png");
+  background-position: center top;
+}
+
+.section-bg-education {
+  background-image: url("/image/educion.png");
+}
+
+.section-bg-languages {
+  background-image: url("/image/idiomas.png");
+}
+
+.section-bg-hobbies {
+  background-image: url("/image/hobies.png");
+}
+
+.section-bg-contact {
+  background-image: url("/image/contacto.png");
+  background-position: center;
+}
+
 /* ─── Portal surface (hero background) ─── */
 .portal-surface {
   position: relative;
@@ -230,6 +285,7 @@ select {
 }
 
 .section-title {
+  font-family: var(--font-montserrat), var(--font-inter), sans-serif;
   text-align: center;
   font-size: clamp(1.55rem, 3vw, 2rem);
   font-weight: 800;

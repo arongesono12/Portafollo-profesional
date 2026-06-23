@@ -10,10 +10,11 @@ import { MiCVPdf } from "./cv-builder/MiCVPdf";
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Sobre Mí", href: "#sobre-mi" },
   { label: "Habilidades", href: "#habilidades" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Experiencia", href: "#experiencia" },
+  { label: "Educación", href: "#educacion" },
+  { label: "Idiomas", href: "#idiomas" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -51,9 +52,9 @@ export function Navbar() {
             suppressHydrationWarning
             className="h-10 w-auto object-contain"
           />
-          <span className="text-sm font-black uppercase leading-tight tracking-normal text-primary">
+          <span className="font-display text-sm font-black uppercase leading-tight tracking-normal text-primary">
             ARON ESONO
-            <span className="block text-xs font-bold text-accent/70">
+            <span className="font-tech block text-xs font-bold text-accent/70">
               Tech Full Stack
             </span>
           </span>
@@ -64,7 +65,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-full px-3 py-2 text-sm font-bold text-secondary transition hover:bg-accent/10 hover:text-accent active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="rounded-full px-2.5 py-2 text-xs font-bold text-secondary transition hover:bg-accent/10 hover:text-accent active:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               {item.label}
             </a>

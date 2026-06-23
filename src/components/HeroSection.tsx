@@ -26,7 +26,7 @@ export function HeroSection() {
     <section id="inicio" className="portal-surface">
       <div className="section-shell relative z-10 grid min-h-[430px] items-center gap-8 py-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-10">
         <div className="max-w-2xl">
-          <p className="text-4xl font-black uppercase leading-[1.05] tracking-normal text-primary sm:text-5xl">
+          <p className="font-display text-4xl font-black uppercase leading-[1.05] tracking-normal text-primary sm:text-5xl">
             <span className="hero-text-in" style={{ animationDelay: "0.2s" }}>
               ¡Hola!
             </span>

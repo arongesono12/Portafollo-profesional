@@ -9,7 +9,11 @@ import { useInView } from "@/hooks/useInView";
 export function ProjectsSection() {
   const { ref, inView } = useInView<HTMLElement>();
   return (
-    <section ref={ref} id="proyectos" className={`tech-surface py-12${inView ? " section-in-left" : " opacity-0"}`}>
+    <section
+      ref={ref}
+      id="proyectos"
+      className={`section-image-background section-bg-projects py-12${inView ? " section-in-left" : " opacity-0"}`}
+    >
       <div className="section-shell relative z-10">
         <h2 className="section-title">PROYECTOS DESTACADOS</h2>
 
@@ -36,7 +40,7 @@ export function ProjectsSection() {
                   {project.technologies.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-md border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs font-bold text-accent/90 transition hover:border-accent/40 hover:bg-accent/20"
+                      className="font-tech rounded-md border border-accent/20 bg-accent/10 px-2.5 py-1 text-xs font-bold text-accent/90 transition hover:border-accent/40 hover:bg-accent/20"
                     >
                       {tech}
                     </span>

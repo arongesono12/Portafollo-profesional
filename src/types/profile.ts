@@ -43,6 +43,17 @@ export type Education = {
   certificates: string[];
 };
 
+export type Language = {
+  name: string;
+  level: string;
+  proficiency: number;
+};
+
+export type Hobby = {
+  name: string;
+  icon: "book" | "music" | "football" | "games" | "fitness";
+};
+
 export type Testimonial = {
   name: string;
   role: string;
@@ -72,5 +83,7 @@ export type Profile = {
   skillGroups: SkillGroup[];
   projects: Project[];
   education: Education[];
+  languages: Language[];
+  hobbies: Hobby[];
   testimonials: Testimonial[];
 };

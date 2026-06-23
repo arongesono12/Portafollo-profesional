@@ -60,7 +60,7 @@ export function SkillsSection() {
                   {skill.level}%
                 </div>
               </div>
-              <p className="text-xs font-semibold text-secondary">{skill.name}</p>
+              <p className="font-tech text-xs font-semibold text-secondary">{skill.name}</p>
               <div className="h-1 w-full max-w-[64px] overflow-hidden rounded-full bg-accent/10 transition-all duration-300 group-hover:h-1.5 group-hover:bg-accent/20">
                 <div
                   className="h-full rounded-full bg-accent transition-all duration-700 ease-out"

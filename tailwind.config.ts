@@ -26,8 +26,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-roboto)"],
-        mono: ["var(--font-roboto)"],
+        sans: ["var(--font-inter)", "var(--font-roboto)", "sans-serif"],
+        display: ["var(--font-montserrat)", "var(--font-inter)", "sans-serif"],
+        tech: ["var(--font-ibm-plex)", "var(--font-inter)", "sans-serif"],
+        document: ["var(--font-roboto)", "var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-ibm-plex)", "monospace"],
       },
       letterSpacing: {
         eyebrow: "0.18em",
