@@ -20,7 +20,6 @@ const socialMediaIconMap: Partial<Record<(typeof profile.socials)[number]["icon"
 
 export function HeroSection() {
   const { theme } = useTheme();
-  const [firstName, lastName] = profile.name.split(" ");
 
   return (
     <section id="inicio" className="portal-surface">
@@ -31,7 +30,7 @@ export function HeroSection() {
               ¡Hola!
             </span>
             <span className="hero-text-in-right block" style={{ animationDelay: "0.5s" }}>
-              Soy <span className="cyan-text">{firstName} {lastName}</span>.
+              Soy <span className="text-accent">ARON ESONO</span>.
             </span>
             <span className="hero-text-in block" style={{ animationDelay: "0.7s" }}>
               {profile.title}.
