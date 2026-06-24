@@ -72,7 +72,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2">
           <button
             type="button"
             onClick={toggle}
@@ -122,6 +122,17 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={() => {
+                setIsOpen(false);
+                setShowMyCV(true);
+              }}
+              className="mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-accent px-4 text-sm font-black text-inverse transition hover:bg-accent-hover active:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <Download size={16} />
+              Crear CV
+            </button>
           </div>
         </div>
       ) : null}

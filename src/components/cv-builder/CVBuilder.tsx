@@ -3,6 +3,7 @@
 import {
   ArrowLeft,
   Download,
+  Eye,
   ImagePlus,
   LayoutTemplate,
   Plus,
@@ -38,6 +39,18 @@ type StoredCV = {
   templateId: CVTemplateId;
   data: CVData;
 };
+
+type BuilderPanel = "form" | "templates" | "preview";
+
+const builderPanels: Array<{
+  id: BuilderPanel;
+  label: string;
+  icon: typeof UserRound;
+}> = [
+  { id: "form", label: "Datos", icon: UserRound },
+  { id: "templates", label: "Plantillas", icon: LayoutTemplate },
+  { id: "preview", label: "Vista", icon: Eye },
+];
 
 function normalizeTemplateId(templateId: unknown): CVTemplateId {
   return cvTemplates.some((template) => template.id === templateId)
@@ -83,6 +96,7 @@ function getStoredCV(): StoredCV {
 export function CVBuilder() {
   const [builder, setBuilder] = useState<StoredCV>({ templateId: "modern", data: initialCVData });
   const [hasLoadedStoredCV, setHasLoadedStoredCV] = useState(false);
+  const [activePanel, setActivePanel] = useState<BuilderPanel>("form");
   const { data, templateId } = builder;
 
   const selectedTemplate = useMemo(
@@ -196,6 +210,11 @@ export function CVBuilder() {
     setBuilder({ templateId: "modern", data: initialCVData });
   }
 
+  function printCV() {
+    setActivePanel("preview");
+    window.setTimeout(() => window.print(), 0);
+  }
+
   function updateAvatar(value: string) {
     updateField("avatarUrl", value);
   }
@@ -270,39 +289,69 @@ export function CVBuilder() {
             </button>
             <button
               type="button"
-              onClick={() => window.print()}
+              onClick={printCV}
               className="inline-flex h-9 items-center gap-2 rounded-lg bg-accent px-4 text-xs font-black text-inverse transition hover:bg-accent-hover"
             >
               <Download size={14} /> Descargar PDF
             </button>
           </div>
         </div>
+        <div className="mx-auto w-full max-w-7xl px-4 pb-4 lg:px-6">
+          <div className="grid grid-cols-3 gap-2 rounded-xl border border-accent/15 bg-surface-overlay p-1">
+            {builderPanels.map((panel) => {
+              const Icon = panel.icon;
+
+              return (
+                <button
+                  key={panel.id}
+                  type="button"
+                  onClick={() => setActivePanel(panel.id)}
+                  className={cn(
+                    "inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-2 text-xs font-black transition sm:text-sm",
+                    activePanel === panel.id
+                      ? "bg-accent text-inverse shadow-lg shadow-cyan-950/20"
+                      : "text-secondary hover:bg-accent/10 hover:text-accent",
+                  )}
+                >
+                  <Icon size={15} />
+                  <span>{panel.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[420px_1fr] lg:px-6">
-        <aside className="cv-editor-panel grid gap-5 self-start rounded-lg border border-accent/15 bg-surface-raised p-4 shadow-2xl shadow-black/20">
-          <section>
+      <div className="mx-auto max-w-7xl px-4 py-5 lg:px-6">
+        <aside
+          className={cn(
+            "cv-editor-panel mx-auto gap-5 rounded-lg border border-accent/15 bg-surface-raised p-4 shadow-2xl shadow-black/20 sm:p-5",
+            activePanel === "preview" ? "hidden" : "grid",
+            activePanel === "templates" ? "max-w-6xl" : "max-w-3xl",
+          )}
+        >
+          <section className={cn(activePanel === "templates" ? "block" : "hidden")}>
             <div className="mb-3 flex items-center gap-2">
               <LayoutTemplate size={18} className="text-accent" />
               <h2 className="text-sm font-black uppercase tracking-[0.14em] text-secondary">
                 Plantillas
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cvTemplates.map((template) => (
                 <button
                   key={template.id}
                   type="button"
                   onClick={() => setBuilder((current) => ({ ...current, templateId: template.id }))}
                   className={cn(
-                    "rounded-lg border p-2 text-left transition",
+                    "rounded-lg border p-3 text-left transition",
                     templateId === template.id
-                      ? "border-accent bg-accent/10"
+                      ? "border-accent bg-accent/10 shadow-lg shadow-cyan-950/20"
                       : "border-accent/15 bg-surface-overlay hover:border-accent/50",
                   )}
                 >
                   <TemplateThumbnail templateId={template.id} accent={template.accent} />
-                  <span className="mt-2 block">
+                  <span className="mt-3 block">
                     <span className="block text-sm font-black text-primary">{template.name}</span>
                     <span className="mt-1 block text-[11px] font-bold uppercase tracking-[0.12em] text-accent">
                       {template.category === "technical"
@@ -318,9 +367,19 @@ export function CVBuilder() {
                 </button>
               ))}
             </div>
+            <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:justify-end">
+              <button
+                type="button"
+                onClick={() => setActivePanel("preview")}
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-black text-inverse transition hover:bg-accent-hover"
+              >
+                <Eye size={16} />
+                Ver resultado
+              </button>
+            </div>
           </section>
 
-          <section className="grid gap-4">
+          <section className={cn("gap-4", activePanel === "form" ? "grid" : "hidden")}>
             <h2 className="text-sm font-black uppercase tracking-[0.14em] text-secondary">
               Datos personales
             </h2>
@@ -343,6 +402,8 @@ export function CVBuilder() {
             <TextArea label="Habilidades separadas por coma" rows={3} value={data.skills} onChange={(value) => updateField("skills", value)} />
           </section>
 
+          {activePanel === "form" ? (
+          <>
           <EditableList
             title="Experiencia"
             onAdd={addExperience}
@@ -379,9 +440,22 @@ export function CVBuilder() {
               </div>
             ))}
           />
+          <div className="flex flex-col gap-2 border-t border-accent/10 pt-2 sm:flex-row sm:justify-end">
+            <button
+              type="button"
+              onClick={() => setActivePanel("templates")}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-accent px-4 text-sm font-black text-inverse transition hover:bg-accent-hover"
+            >
+              <LayoutTemplate size={16} />
+              Elegir plantilla
+            </button>
+          </div>
+          </>
+          ) : null}
         </aside>
 
-        <section className="cv-preview-area min-w-0 rounded-lg border border-accent/15 bg-surface-raised p-4 shadow-2xl shadow-black/20 lg:p-6">
+        {activePanel === "preview" ? (
+        <section className="cv-preview-area min-w-0 rounded-lg border border-accent/15 bg-surface-raised p-3 shadow-2xl shadow-black/20 sm:p-4 lg:p-6">
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.18em] text-accent">
@@ -395,6 +469,7 @@ export function CVBuilder() {
           </div>
           <RegisteredCVPreview data={data} templateId={templateId} />
         </section>
+        ) : null}
       </div>
     </main>
   );
